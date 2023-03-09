@@ -1,4 +1,7 @@
 <template>
+  <div m-10 text-sky text-3xl font-bold bg-neutral-200 p-2 rounded-lg>
+    {{ formattedNowTime }}
+  </div>
   <div text-center>
     tourist params : {{ route.params.inspect }}
   </div>
@@ -6,7 +9,7 @@
 
 <script setup lang='ts'>
 const route = useRoute()
-console.log("🚀 ~ file: [inspect].vue:9 ~ route:", route)
+const formattedNowTime = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss')
 </script>
 <style scoped lang='less'>
 </style>

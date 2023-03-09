@@ -4,6 +4,8 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/devtools',
         '@unocss/nuxt',
+        '@vueuse/nuxt',
+        '@vue-macros/nuxt',
         'vite-plugin-inspect', // ?
     ],
     // unocss: {
@@ -16,4 +18,7 @@ export default defineNuxtConfig({
     //     shortcuts: [],
     //     rules: [],
     // },
+    macros: {
+        // configure plugin options, if needed
+    },
 })

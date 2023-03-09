@@ -30,7 +30,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineOptions({
+  name: 'UseUnoCSS',
+  inheritAttrs: false,
+})
+</script>
 <style scoped>
 [transformer-test1] {
   --at-apply: text-center text-blue my-1 bg-pink;
