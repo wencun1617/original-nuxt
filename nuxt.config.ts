@@ -5,6 +5,7 @@ export default defineNuxtConfig({
         '@nuxt/devtools',
         '@unocss/nuxt',
         '@vueuse/nuxt',
+        '@pinia/nuxt',
         '@vue-macros/nuxt',
         'vite-plugin-inspect', // ?
     ],
@@ -21,4 +22,15 @@ export default defineNuxtConfig({
     macros: {
         // configure plugin options, if needed
     },
+    app: {
+        head: {
+            charset: 'utf-16',
+            viewport: 'width=500, initial-scale=1',
+            title: 'nuxt.config.ts title',
+            meta: [
+                // <meta name="description" content="My amazing site">
+                { name: 'description', content: 'My amazing site.' }
+            ],
+        }
+    }
 })

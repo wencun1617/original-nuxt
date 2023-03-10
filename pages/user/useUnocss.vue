@@ -1,4 +1,5 @@
 <template>
+  <Title>{{ title }}</Title>
   <div p-10>
     <div italic mt-2 text="2xl center">1. rules</div>
     <div custom-rules-m-2 bg-gray-2>
@@ -31,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+const title = ref('Nuxt provides Components <Title>')
 defineOptions({
   name: 'UseUnoCSS',
   inheritAttrs: false,
