@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    home index
+  </div>
 </template>
 
 <script setup lang='ts'>

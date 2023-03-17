@@ -7,7 +7,7 @@
 <script setup lang="ts">
 useHead({
   titleTemplate: (titleChunk) => {
-    console.log("🚀 ~ file: app.vue:14 ~ titleChunk:", titleChunk);
+    // console.log("🚀 ~ file: app.vue:14 ~ titleChunk:", titleChunk);
     return titleChunk ? `${titleChunk} - Site Title` : "Site Title";
   },
 });
