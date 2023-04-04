@@ -44,27 +44,27 @@ export default defineNuxtConfig({
   ],
   elementPlus: {},
   // buildDir: 'nuxt-build'
-  vite:{
-    build: {
-      // minify: 'terser',
-      // terserOptions: {
-      //   compress: {
-      //     //生产环境时移除console.log()
-      //     drop_console: true,
-      //     drop_debugger: true,
-      //   },
-      // },
-      outDir: 'build', // 将打包后的文件存放到 build 目录中
-      assetsDir: 'static', // 将打包后的静态资源文件存放到 static 目录中
-      rollupOptions: {
-        output: {
-          chunkFileNames: 'static/js/[name]-[hash].js',
-          entryFileNames: 'static/js/[name]-[hash].js',
-          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
-        }
-      }
-    }, 
-  },
+  // vite:{
+  //   build: {
+  //     // minify: 'terser',
+  //     // terserOptions: {
+  //     //   compress: {
+  //     //     //生产环境时移除console.log()
+  //     //     drop_console: true,
+  //     //     drop_debugger: true,
+  //     //   },
+  //     // },
+  //     outDir: 'build', // 将打包后的文件存放到 build 目录中
+  //     assetsDir: 'static', // 将打包后的静态资源文件存放到 static 目录中
+  //     rollupOptions: {
+  //       output: {
+  //         chunkFileNames: 'static/js/[name]-[hash].js',
+  //         entryFileNames: 'static/js/[name]-[hash].js',
+  //         assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+  //       }
+  //     }
+  //   }, 
+  // },
   runtimeConfig: {
     // The private keys which are only available server-side
     apiSecret1: '123',
@@ -73,5 +73,13 @@ export default defineNuxtConfig({
     public: {
       apiBase: '/api'
     }
-  }
+  },
+  // devtools:{
+  //   vscode:{}
+  // },
+  // nitro: {
+  //   prerender: {
+  //     routes: ['/user/tourist/1','/user/tourist/2']
+  //   }
+  // }
 });
