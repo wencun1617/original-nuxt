@@ -1,5 +1,5 @@
 {
-  "name": "unocss-example",
+  "name": "original-nuxt",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -16,6 +16,7 @@
     "@antfu/eslint-config": "^0.38.3",
     "@element-plus/nuxt": "^1.0.4",
     "@iconify-json/ion": "^1.1.9",
+    "@nuxt/content": "^2.6.0",
     "@unocss/eslint-config": "^0.50.6",
     "@unocss/nuxt": "^0.50.6",
     "@vue-macros/nuxt": "^1.2.7",

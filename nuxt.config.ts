@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vue-macros/nuxt",
     "vite-plugin-inspect", // ?
-    "@element-plus/nuxt"
+    "@element-plus/nuxt",
+    '@nuxt/content'
   ],
   // unocss: {
   //     // presets
@@ -81,5 +82,6 @@ export default defineNuxtConfig({
   //   prerender: {
   //     routes: ['/user/tourist/1','/user/tourist/2']
   //   }
-  // }
+  // },
+  content: {}
 });
