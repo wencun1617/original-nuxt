@@ -1,5 +1,6 @@
 {
-    "title": "Hello Content v2!",
-    "description": "The writing experience for Nuxt 3",
-    "category": "announcement"
-  }
+  "excerpt":"n.摘录, 节选, （音乐、电影的）片段 v.摘录, 引用 ??",
+  "title": "3.hello.json",
+  "description": "默认作用域插槽解构渲染-description",
+  "category": "announcement"
+}
