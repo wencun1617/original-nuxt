@@ -1,7 +1,7 @@
 <template>
   <Title>{{ title }}</Title>
   <div p-10>
-    <div italic mt-2 text="2xl center">1. rules</div>
+    <div italic mt-2 text="2xl center" hover:bg-green-500>1. rules</div>
     <div custom-rules-m-2 bg-gray-2>
       Writing custom rules , To make it smarter, change the matcher to a RegExp
       and the body to a function

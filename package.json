@@ -17,6 +17,7 @@
     "@element-plus/nuxt": "^1.0.4",
     "@iconify-json/ion": "^1.1.10",
     "@nuxt/content": "^2.6.0",
+    "@nuxt/devtools": "^0.4.6",
     "@unocss/eslint-config": "^0.51.12",
     "@unocss/nuxt": "^0.51.12",
     "@vue-macros/nuxt": "^1.3.5",
@@ -30,7 +31,6 @@
     "vitest": "^0.31.0"
   },
   "dependencies": {
-    "@nuxt/devtools": "^0.4.6",
     "@pinia/nuxt": "^0.4.10",
     "element-plus": "^2.3.4",
     "pinia": "^2.0.36"
