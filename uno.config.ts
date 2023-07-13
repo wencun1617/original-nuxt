@@ -6,12 +6,13 @@ import {
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
+  transformerAttributifyJsx
 } from "unocss";
-const colors = require("tailwindcss/colors");
+import colors from "tailwindcss/colors";
 
 export default defineConfig({
   rules: [
-    [/^custom-rules-m-(\d+)$/, ([, d]) => ({ margin: `${ Number(d) / 4}rem` })],
+    [/^custom-rules-m-(\d+)$/, ([, d]) => ({ margin: `${Number(d) / 4}rem` })],
     // To consume the theme in rules:
     // [
     //   /^text-(.*)$/,
@@ -48,7 +49,15 @@ export default defineConfig({
   ],
   presets: [
     presetUno(),
-    presetAttributify(),
+    presetAttributify({
+      // 如果属性名称与元素或组件的属性名称发生冲突，您可以在属性名称前添加 un- 前缀以指定为 UnoCSS 的属性模式
+      prefix: 'un-',
+      //强制前缀
+      // prefixedOnly: true,
+      // ignoreAttributes: [
+      //   'text'
+      // ]
+    }),
     presetWebFonts({
       provider: "google", // default provider
       fonts: {
@@ -72,7 +81,11 @@ export default defineConfig({
     }),
     presetIcons({ /* options */ }),
   ],
-  transformers: [transformerDirectives(), transformerVariantGroup()],
+  transformers: [
+    transformerDirectives(),
+    transformerVariantGroup(), //  Windi CSS 的 变体组特性
+    transformerAttributifyJsx(), // Support valueless attributify in JSX/TSX
+  ],
   theme: {
     breakpoints: {
       sm: "325px",
@@ -97,12 +110,28 @@ export default defineConfig({
       if (!matcher.startsWith('hover:'))
         return matcher
       return {
-        // slice `hover:` prefix and passed to the next variants and rules
+        // matcher 控制变体何时启用。如果返回值是字符串，则将其用作匹配规则的选择器。
+        // 去掉前缀并将其传递给下一个变体和规则
         matcher: matcher.slice(6),
+        //  提供了自定义生成的 CSS 选择器的可用性
         selector: s => {
+          console.log("🚀 ~ file: uno.config.ts:118 ~ s:", s)
           return `${s}:hover`
         },
       }
-    }
+    },
+    //yh:
+    (matcher) => {
+      if (!matcher.startsWith('yh:'))
+        return matcher
+      return {
+        matcher: matcher.slice(3),
+        //  提供了自定义生成的 CSS 选择器的可用性
+        selector: s => {
+          console.log("🚀 ~ file: uno.config.ts:130 ~ s:", s)
+          return `${s}:hover`
+        },
+      }
+    },
   ],
 });
