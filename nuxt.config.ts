@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     "@vue-macros/nuxt",
     "vite-plugin-inspect", // ?
     "@element-plus/nuxt",
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxt/image',
   ],
   // unocss: {
   //     // presets
@@ -83,5 +84,19 @@ export default defineNuxtConfig({
   //     routes: ['/user/tourist/1','/user/tourist/2']
   //   }
   // },
-  content: {}
+  content: {},
+  image:{
+    inject:true,
+    // Presets are predefined sets of image modifiers that can be used create unified form of images in your projects.
+    presets:{
+      cover:{
+        modifiers:{
+          fit:"cover",
+          format:"jpg",
+          width: 160,
+          height: 160
+        }
+      }
+    }
+  }
 });

@@ -6,5 +6,6 @@
 useHead({
   title: "user index标题",
 });
+const img = useImage()
 </script>
 <style scoped lang="less"></style>
