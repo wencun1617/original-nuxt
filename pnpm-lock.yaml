@@ -33,6 +33,9 @@ devDependencies:
   '@unocss/eslint-config':
     specifier: ^0.53.5
     version: 0.53.5(eslint@8.44.0)(typescript@5.1.6)
+  '@unocss/extractor-pug':
+    specifier: ^0.53.5
+    version: 0.53.5
   '@unocss/nuxt':
     specifier: ^0.53.5
     version: 0.53.5(postcss@8.4.25)(vite@4.4.3)(webpack@5.88.1)
@@ -2078,6 +2081,15 @@ packages:
     resolution: {integrity: sha512-rSS3Q8/+lEwxXfXzEOFuhAQGMpaaZcBAYDiNCYS/9BqKrTzhSYG82Qy80ISpqSZr0BTLET4X3dC6B6Rd4GU5vQ==}
     dependencies:
       '@unocss/core': 0.53.5
+    dev: true
+
+  /@unocss/extractor-pug@0.53.5:
+    resolution: {integrity: sha512-9FbWM9W84j4ioynLO2B+CYQXNmm24OazwV/zW2E3KnpKyDibzAG3C8786epReoNLhvA35KW6ZYqDVTBz8O6dGg==}
+    peerDependencies:
+      pug: ^3.0.0
+    peerDependenciesMeta:
+      pug:
+        optional: true
     dev: true
 
   /@unocss/inspector@0.53.5:

@@ -8,6 +8,8 @@ import {
   transformerVariantGroup,
   transformerAttributifyJsx
 } from "unocss";
+import { extractorSplit } from '@unocss/core'
+import extractorPug from '@unocss/extractor-pug'
 import colors from "tailwindcss/colors";
 
 export default defineConfig({
@@ -86,6 +88,8 @@ export default defineConfig({
     transformerVariantGroup(), //  Windi CSS 的 变体组特性
     transformerAttributifyJsx(), // Support valueless attributify in JSX/TSX
   ],
+  // 提取器用于从源代码中提取工具的使用情况。
+  extractors: [extractorPug(), extractorSplit],
   theme: {
     breakpoints: {
       sm: "325px",

@@ -2,6 +2,8 @@
     <div>Nuxtimage</div>
     <nuxt-img preset="cover" src="~/assets/avater.jpg" class="m-6" />
     <br/>
+    <nuxt-img preset="cover" src="../../assets/avater.jpg" class="m-6 w-40 h-40" />
+    <br/>
     <!-- preload 
     This will place a corresponding link tag in the page's head. -->
     
