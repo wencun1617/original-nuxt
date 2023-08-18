@@ -24,8 +24,17 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
+import type { ComponentInternalInstance } from '@vue/runtime-dom';
 
+const { appContext } = getCurrentInstance() as ComponentInternalInstance
+console.log("🚀 ~ file: app.vue:30 ~ appContext:", appContext)
+
+//  available on both client and server side
+// access the Vue app instance, runtime hooks, runtime config variables and internal states, such as ssrContext and payload.
+const nuxtApp = useNuxtApp()
+console.log("🚀 ~ file: app.vue:29 ~ nuxtApp:", nuxtApp)
+
+const route = useRoute();
 const showChangeLauout = ref<boolean>(false)
 
 watch(() => route.path, (newVal, _) => {
