@@ -42,7 +42,7 @@ watch(() => route.path, (newVal, _) => {
 }, { immediate: true })
 
 useHead({
-  titleTemplate: (titleChunk) => {
+  titleTemplate: (titleChunk:any) => {
     // console.log("🚀 ~ file: app.vue:14 ~ titleChunk:", titleChunk);
     return titleChunk ? `${titleChunk} - Site Title` : "Site Title";
   },
