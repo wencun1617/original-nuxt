@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLayout>
+    <NuxtLayout title="Additional Props" ref="appLayout">
       <NuxtPage />
     </NuxtLayout>
   </div>
@@ -34,7 +34,15 @@ console.log("🚀 ~ file: app.vue:30 ~ appContext:", appContext)
 const nuxtApp = useNuxtApp()
 console.log("🚀 ~ file: app.vue:29 ~ nuxtApp:", nuxtApp)
 
-const route = useRoute();
+const route = useRoute()
+
+const appLayout = ref()
+
+// To get the ref of a layout component, access it through ref.value.layoutRef
+onMounted(() => {
+  console.log("🚀 ~ file: app.vue:43 ~ onMounted ~ appLayout.value.layoutRef:", appLayout.value.layoutRef)
+})
+
 const showChangeLauout = ref<boolean>(false)
 
 watch(() => route.path, (newVal, _) => {

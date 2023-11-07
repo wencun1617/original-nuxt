@@ -1,11 +1,13 @@
 <template>
   <div class="default">
     <slot />
+    {{$attrs.title}}
   </div>
 </template>
 
 <script setup lang='ts'>
-
+const layoutCustomProps = useAttrs()
+console.log("🚀 ~ file: default.vue:9 ~ layoutCustomProps: @@", toRaw(layoutCustomProps))
 </script>
 <style scoped lang='less'>
 .default {

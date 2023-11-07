@@ -119,7 +119,6 @@ export default defineConfig({
         matcher: matcher.slice(6),
         //  提供了自定义生成的 CSS 选择器的可用性
         selector: s => {
-          console.log("🚀 ~ file: uno.config.ts:118 ~ s:", s)
           return `${s}:hover`
         },
       }
