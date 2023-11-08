@@ -27,12 +27,12 @@
 import type { ComponentInternalInstance } from '@vue/runtime-dom';
 
 const { appContext } = getCurrentInstance() as ComponentInternalInstance
-console.log("🚀 ~ file: app.vue:30 ~ appContext:", appContext)
+// console.log("🚀 ~ file: app.vue:30 ~ appContext:", appContext)
 
 //  available on both client and server side
 // access the Vue app instance, runtime hooks, runtime config variables and internal states, such as ssrContext and payload.
 const nuxtApp = useNuxtApp()
-console.log("🚀 ~ file: app.vue:29 ~ nuxtApp:", nuxtApp)
+// console.log("🚀 ~ file: app.vue:29 ~ nuxtApp:", nuxtApp)
 
 const route = useRoute()
 

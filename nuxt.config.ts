@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     '@nuxt/content',
     '@nuxt/image',
+    // '~/modules/Nuxt Hooks (build time)/index',
   ],
   // unocss: {
   //     // presets
