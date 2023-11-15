@@ -1,4 +1,7 @@
 <template>
+  <VitePwaManifest />
+  <!-- Display a progress bar between page navigations. -->
+  <NuxtLoadingIndicator />
   <div>
     <NuxtLayout title="Additional Props" ref="appLayout">
       <NuxtPage />
@@ -14,6 +17,9 @@
       </button>
       <button @click="setPageLayout('other')" m-2>
         layouts/other.vue
+      </button>
+      <button @click="setPageLayout('pwa')" m-2>
+        layouts/pwa.vue
       </button>
       <!-- 随便设置个没有的layouts便移除了 -->
       <button @click="setPageLayout('flase')" m-2>
