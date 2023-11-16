@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang='ts'>
-const layoutCustomProps = useAttrs()
-console.log("🚀 ~ file: default.vue:9 ~ layoutCustomProps: @@", toRaw(layoutCustomProps))
+const layoutCustomProps = useAttrs() // 传入NuxtLayout的props
+// console.log("🚀 ~ file: default.vue:9 ~ layoutCustomProps: @@", toRaw(layoutCustomProps))
 </script>
 <style scoped lang='less'>
 .default {

@@ -1,8 +1,14 @@
 <script setup lang="ts">
-// you don't need this: only for testing purposes
 const date = useAppConfig().buildDate
-const {$pwa} =  useNuxtApp()
-console.log("🚀 ~ file: pwa.vue:5 ~ pwa:", pwa)
+// const { $pwa } =  useNuxtApp()
+// console.log("🚀 ~ file: pwa.vue:5 ~ pwa:", $pwa)
+// watch($pwa, (new, old) => {
+//   console.log('new-$pwa',new)
+//   console.log('old-$pwa',old)
+// },{
+//   deep: true,
+// })
+
 </script>
 
 <template>
@@ -45,9 +51,6 @@ console.log("🚀 ~ file: pwa.vue:5 ~ pwa:", pwa)
 
 <style>
 .pwa-toast {
-  position: fixed;
-  right: 0;
-  bottom: 0;
   margin: 16px;
   padding: 12px;
   border: 1px solid #8885;
