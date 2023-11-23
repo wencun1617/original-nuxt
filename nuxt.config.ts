@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     '@nuxt/content',
     '@nuxt/image',
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@nuxt/ui'
     // '~/modules/Nuxt Hooks (build time)/index',
   ],
   // unocss: {

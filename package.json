@@ -36,6 +36,7 @@
     "vitest": "^0.33.0"
   },
   "dependencies": {
+    "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
     "@pinia/nuxt": "^0.4.11",
     "element-plus": "^2.4.2",
     "pinia": "^2.1.7"
