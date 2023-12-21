@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { i18n } from './config/i18n.config'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
+import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 export default defineNuxtConfig({
-  pages: true,
   modules: [
     "@nuxt/devtools",
     "@unocss/nuxt",
@@ -12,9 +15,27 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image',
     '@vite-pwa/nuxt',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    // '@nuxtjs/i18n',
     // '~/modules/Nuxt Hooks (build time)/index',
   ],
+  build: {
+    transpile: [/vue-i18n/]
+  },
+  vite: {
+    resolve: {
+      alias: {
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js'
+      }
+    },
+    plugins: [
+      VueI18nVitePlugin({
+        include: [
+          resolve(dirname(fileURLToPath(import.meta.url)), './locales/*.json')
+        ]
+      })
+    ]
+  },
   // unocss: {
   //     // presets
   //     uno: true, // enabled `@unocss/preset-uno`
@@ -146,5 +167,14 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  // imports: {
+  //   dirs: [
+  //     './composables/settings',
+  //   ],
+  //   injectAtEnd: true,
+  //   // injectAtEnd配置用于指定是否将导入的模块注入到应用程序的末尾。当设置为true时，导入的模块将被注入到应用程序的末尾，这意味着它们将在其他模块之后被加载和执行。
+  //   // 这可以确保导入的模块在应用程序的其他部分已经准备好之后再被使用，以避免可能的依赖关系问题。如果设置为false，则导入的模块将在应用程序的其他部分之前被加载和执行。
+  // },
+  i18n
 });

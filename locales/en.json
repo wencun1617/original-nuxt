@@ -1,0 +1,9 @@
+{
+    "account": {
+        "follow": "Follow"
+    },
+    "action": {
+        "favourite": "Favorite",
+        "edit": "Edit"
+    }
+}

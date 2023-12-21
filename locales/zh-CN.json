@@ -1,0 +1,9 @@
+{
+    "account": {
+        "follow": "关注"
+    },
+    "action": {
+        "favourite": "喜欢",
+        "edit": "编辑"
+    }
+}
