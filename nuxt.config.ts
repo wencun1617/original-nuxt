@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     // '@nuxtjs/i18n',
     // '~/modules/Nuxt Hooks (build time)/index',
   ],
+  ssr: false,
   build: {
     transpile: [/vue-i18n/]
   },
