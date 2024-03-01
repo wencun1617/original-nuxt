@@ -19,10 +19,13 @@ export default defineNuxtConfig({
     // '@nuxtjs/i18n',
     // '~/modules/Nuxt Hooks (build time)/index',
   ],
+
   ssr: false,
+
   build: {
     transpile: [/vue-i18n/]
   },
+
   vite: {
     resolve: {
       alias: {
@@ -37,6 +40,7 @@ export default defineNuxtConfig({
       })
     ]
   },
+
   // unocss: {
   //     // presets
   //     uno: true, // enabled `@unocss/preset-uno`
@@ -50,10 +54,12 @@ export default defineNuxtConfig({
   macros: {
     // configure plugin options, if needed
   },
+
   appConfig: {
     // you don't need to include this: only for testing purposes
     buildDate: new Date().toISOString() + "buildDatebuildDatebuildDatebuildDate",
   },
+
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
@@ -95,6 +101,7 @@ export default defineNuxtConfig({
       type: 'module',
     },
   },
+
   app: {
     head: {
       charset: "utf-16",
@@ -106,6 +113,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   //If you want to auto-import components based only on its name, not path, 
   //then you need to set pathPrefix option to false using extended form of the configuration object:
   components: [
@@ -114,7 +122,9 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+
   elementPlus: {},
+
   // buildDir: 'nuxt-build'
   // vite:{
   //   build: {
@@ -146,6 +156,7 @@ export default defineNuxtConfig({
       apiBase: '/api'
     }
   },
+
   // devtools:{
   //   vscode:{}
   // },
@@ -155,8 +166,10 @@ export default defineNuxtConfig({
   //   }
   // },
   content: {},
+
   image:{
     inject:true,
+    format: ['webp','jpg','jpeg'],
     // Presets are predefined sets of image modifiers that can be used create unified form of images in your projects.
     presets:{
       cover:{
@@ -167,8 +180,18 @@ export default defineNuxtConfig({
           height: 160
         }
       }
-    }
+    },
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
   },
+
   // imports: {
   //   dirs: [
   //     './composables/settings',
@@ -177,5 +200,11 @@ export default defineNuxtConfig({
   //   // injectAtEnd配置用于指定是否将导入的模块注入到应用程序的末尾。当设置为true时，导入的模块将被注入到应用程序的末尾，这意味着它们将在其他模块之后被加载和执行。
   //   // 这可以确保导入的模块在应用程序的其他部分已经准备好之后再被使用，以避免可能的依赖关系问题。如果设置为false，则导入的模块将在应用程序的其他部分之前被加载和执行。
   // },
-  i18n
+  i18n,
+
+  devtools: {
+    timeline: {
+      enabled: true
+    }
+  }
 });
