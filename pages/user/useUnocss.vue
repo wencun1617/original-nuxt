@@ -1,6 +1,6 @@
 <template>
   <Title>{{ title }}</Title>
-  <div p-10>
+  <div p-10 ref="unocssDemo" @click="generatorImg">
     <div italic mt-2 un-text="2xl center" hover:bg-green-500>1. rules</div>
     <div custom-rules-m-2 bg-gray-2>
       Writing custom rules , To make it smarter, change the matcher to a RegExp
@@ -32,7 +32,23 @@
 </template>
 
 <script setup lang="ts">
+import domtoimage from 'dom-to-image-more';
 const title = ref('Nuxt provides Components <Title>')
+let unocssDemo = ref<HTMLElement | null>(null)
+
+const generatorImg = () => {
+  domtoimage
+    .toPng(toRaw(unocssDemo.value))
+    .then(function (dataUrl:any) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+    })
+    .catch(function (error:any) {
+        console.error('oops, something went wrong!', error);
+    });
+}
+
 defineOptions({
   name: 'UseUnoCSS',
   inheritAttrs: false,
