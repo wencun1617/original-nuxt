@@ -1,10 +1,32 @@
+name: 打包部署nuxt3项目
 on: push
+
+permissions:
+    contents: write
 
 jobs:
     pnpm-build:
+        name: pnpm-build工作
         runs-on: ubuntu-latest
+
         steps:
-        - run: pwd
-        - run: pnpm --version
-        - run: pnpm install
-        - run: pnpm build
+        - name: 读取仓库内容
+          uses: actions/checkout@v4
+        
+        - name: 查看npm版本
+          run: npm --version
+
+        - name: 安装pnpm
+          run: npm install pnpm
+
+        - name: 安装依赖 && 项目打包
+          run: |
+            pnpm install
+            pnpm build
+        
+        - name: 部署
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            branch: gh-pages
+            folder: .output
+

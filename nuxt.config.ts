@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config'
 import { i18n } from './config/i18n.config'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
@@ -38,7 +39,18 @@ export default defineNuxtConfig({
           resolve(dirname(fileURLToPath(import.meta.url)), './locales/*.json')
         ]
       })
-    ]
+    ],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes("node_modules")) {
+              return "vendorNew"
+            }
+          }
+        }
+      }
+    }
   },
 
   // unocss: {
