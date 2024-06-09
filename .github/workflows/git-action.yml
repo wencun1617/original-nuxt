@@ -1,5 +1,7 @@
 name: 打包部署nuxt3项目
-on: push
+on:
+  push:
+    branches: [ master ]
 
 permissions:
     contents: write
@@ -17,7 +19,7 @@ jobs:
           run: npm --version
 
         - name: 安装pnpm
-          run: npm install pnpm
+          run: npm install -g pnpm
 
         - name: 安装依赖 && 项目打包
           run: |
