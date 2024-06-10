@@ -1,34 +1,55 @@
-name: 打包部署nuxt3项目
+# https://github.com/actions/deploy-pages#usage
+name: 打包部署nuxt3项目20240611
 on:
+  # 当设置为  workflow_dispatch时，可以在 GitHub仓库的 Actions 页面手动触发该工作流程的运行。
+  workflow_dispatch:
   push:
-    branches: [ master ]
-
-permissions:
-    contents: write
-
+    branches:
+      - master
 jobs:
-    pnpm-build:
-        name: pnpm-build工作
-        runs-on: ubuntu-latest
+  # build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
 
-        steps:
-        - name: 读取仓库内容
-          uses: actions/checkout@v4
+      # 设置node版本
+      - run: corepack enable
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
         
-        - name: 查看npm版本
-          run: npm --version
-
-        - name: 安装pnpm
-          run: npm install -g pnpm
-
-        - name: 安装依赖 && 项目打包
-          run: |
-            pnpm install
-            pnpm build
-        
-        - name: 部署
-          uses: JamesIves/github-pages-deploy-action@v4
-          with:
-            branch: gh-pages
-            folder: .output
-
+      # Pick your own package manager and build script
+      - name: 安装pnpm
+        run: npm install -g pnpm
+      
+      # Nuxt.js 可以根据 GitHub Pages 的要求进行构建，生成适用于 GitHub Pages 的静态文件。这样生成的文件可以直接部署到 GitHub Pages 上，用于托管静态网站
+      - name: 安装依赖 && 项目打包 nuxt build --preset github_pages
+        run: |
+          pnpm install
+          pnpm pages
+      
+      # 用于将生成的静态文件或其他需要共享的文件打包并上传到 GitHub Actions 的 artifact 中，以便稍后下载或在其他步骤中使用
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./.output/public
+  # Deployment job
+  deploy:
+    # 执行部署任务之前，必须先执行  build  任务，以确保部署所需的构建操作已经完成
+    needs: build
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    # Deploy to the github_pages environment
+    environment:
+      name: github_pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
