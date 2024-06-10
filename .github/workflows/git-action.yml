@@ -13,12 +13,6 @@ jobs:
     steps:
       - name: 读取仓库内容
         uses: actions/checkout@v4
-
-      # 设置node版本
-      - run: corepack enable
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "20"
         
       # Pick your own package manager and build script
       - name: 安装pnpm
