@@ -17,8 +17,10 @@
     "@intlify/unplugin-vue-i18n": "^2.0.0",
     "@nuxt/ui": "npm:@nuxt/ui-edge@latest",
     "@pinia/nuxt": "^0.4.11",
+    "@vueuse/components": "^10.11.0",
     "dom-to-image-more": "^3.3.0",
     "element-plus": "^2.5.3",
+    "p-limit": "^5.0.0",
     "pinia": "^2.1.7",
     "vue-i18n": "^9.9.1",
     "wavesurfer.js": "^7.7.1"
