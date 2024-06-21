@@ -26,6 +26,9 @@ export default defineNuxtConfig({
   build: {
     transpile: [/vue-i18n/]
   },
+  router: {
+    
+  },
 
   vite: {
     resolve: {
@@ -124,6 +127,7 @@ export default defineNuxtConfig({
         { name: "description", content: "My amazing site." },
       ],
     },
+    buildAssetsDir: "/original-nuxt/_nuxt/"
   },
 
   //If you want to auto-import components based only on its name, not path, 

@@ -47,6 +47,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
-      - name: Set Page URL
-        run: echo "::set-output name=page_url::${steps.deployment.outputs.page_url%original-nuxt/}"
