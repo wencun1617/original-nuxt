@@ -127,6 +127,7 @@ export default defineNuxtConfig({
         { name: "description", content: "My amazing site." },
       ],
     },
+    baseURL: "/original-nuxt"
   },
 
   //If you want to auto-import components based only on its name, not path, 
