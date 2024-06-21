@@ -40,10 +40,13 @@ jobs:
 
     environment:
       name: github_pages
-      url: ${{ steps.deployment.outputs.page_url }}/original-nuxt
+      url: ${{ steps.deployment.outputs.page_url }}
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
+      - name: Set Page URL
+        run: echo "::set-output name=page_url::${steps.deployment.outputs.page_url%original-nuxt/}"
